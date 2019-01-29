@@ -1,0 +1,100 @@
+
+/* 文章列表样式 */
+
+.container .article-list-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #eee;
+}
+
+.container .article-list-container .per-article{
+    margin: 0 30rpx 30rpx 30rpx;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.container .article-list-container .article-head{
+    height: 100rpx;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #666;
+}
+
+.container .article-list-container .article-head image{
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+    margin: 20rpx;
+}
+
+.container .article-list-container .article-cover{
+    padding: 20rpx;
+}
+
+.container .article-list-container .article-cover image{
+    width: 100%;
+}
+
+.container .article-list-container .article-title{
+    padding: 0 20rpx 20rpx 20rpx;
+    vertical-align: middle;
+}
+
+.container .article-list-container .article-handle-box{
+    padding: 20rpx;
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;
+}
+
+.container .article-list-container .article-handle-box .article-type{
+    margin: 10rpx 0 0 0;
+}
+
+.container .article-list-container .article-handle-box .article-type text{
+    display: inline-block;
+    padding: 2rpx 5rpx;
+    border: 2rpx solid black;
+    text-align: center;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 30rpx;
+    vertical-align: middle;
+}
+
+.container .article-list-container .article-handle-box .article-handle{
+    width: 250rpx;
+    height: 40rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container .article-list-container .article-handle-box .article-handle view{
+    width: 40rpx;
+    height: 100%;
+}
+
+.container .article-list-container .article-handle-box .article-handle view image{
+    width: 100%;
+    height: 100%;
+}
+
+.container .article-list-container .article-handle-box .article-handle button{
+    border: none;
+    background-color: transparent;
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.container .article-list-container .article-handle-box .article-handle button::after{
+    border: none;
+}
+
+.container .article-list-container .article-handle-box .article-handle button image{
+    width: 40rpx;
+    height: 40rpx;
+    position: relative;
+    left: -20rpx;
+    top: -20rpx;
+}
