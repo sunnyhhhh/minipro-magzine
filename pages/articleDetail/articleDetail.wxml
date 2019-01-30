@@ -2,6 +2,7 @@
 <!-- <text>pages/articleDetail/articleDetail.wxml</text> -->
 
 <wxs src="../../utils/filter.wxs" module="filter"></wxs>
+<wxs src="../../utils/format.wxs" module="format"></wxs>
 
 <!-- 文章详情页面 -->
 <view class="container">
@@ -13,11 +14,51 @@
         <text>{{articleDetail.publishTime}}</text>
     </view>
     <view class="media-container">
-        <!-- <swiper class="banner" indicator-dots="true" autoplay="true" interval="2000" circular="true">
+        <!-- 轮播图组件 -->
+        <swiper wx:if="{{articleDetail.banner[0]}}"
+        class="banner" indicator-dots="true" autoplay="true" interval="2000" circular="true">
             <swiper-item wx:for="{{articleDetail.banner}}">
                 <image src="{{item}}"></image>
             </swiper-item>
-        </swiper> -->
+        </swiper>
+
+        <!-- 视频播放组件 -->
+        <video wx:elif="{{articleDetail.video.src}}"
+        id="myVideo" class="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
+            duration="20" initial-time="10" controls="true" danmu-list="{{danmuList}}" enable-danmu="true" danmu-btn="true">
+            <cover-view wx:if="{{!videoMaskHidden}}">
+                <cover-image class="mask" src="https://img.soogif.com/LkllhnDlnFErZ3WW7x69vdIF7CXqi2Zs.gif_s400x0"></cover-image>
+                <cover-view class="start" bindtap="onVideoTap">20''</cover-view>
+            </cover-view>
+        </video>
+
+        <!-- 音乐播放组件 -->
+        <view wx:elif="{{articleDetail.audio.src}}"
+        class="audio-container">
+            <view class="audio-controller">
+                <image bind:tap="onAudioPlayTap" src="../../image/icon/icon_pause.png" wx:if="{{audioPlaying}}"></image>
+                <image bind:tap="onAudioPlayTap" src="../../image/icon/icon_play.png" wx:if="{{!audioPlaying}}"></image>
+            </view>
+            <view class="audio-info">
+                <view class="audio-title">
+                    <text>{{articleDetail.title}}</text>
+                </view>
+                <view class="audio-from">
+                    <text>{{articleDetail.audio.from}}</text>
+                </view>
+                <view class="audio-progress">
+                    <progress percent="{{progressPercent}}" style="width: {{progressWidth + 'rpx'}}"></progress>
+                    <view class="progress-circle" bind:touchstart="onAudioStart" 
+                    bind:touchmove="onAudioCircleMove"
+                    style="left:{{progressCircleLeft + 'rpx'}}"></view>
+                </view>
+                <view class="audio-time">
+                    <text>{{format(audioCurTime)}}</text>
+                    <text>{{format(articleDetail.audio.duration)}}</text>
+                </view>
+            </view>
+        </view>
+
     </view>
     <view class="content-container">
         <text decode="true">{{filter(articleDetail.content)}}</text>
@@ -37,4 +78,16 @@
     return text.replace(reg, '\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
     };
     module.exports = filter;
+</wxs> -->
+<!-- 
+<wxs module="format">
+    var format = function(sec){
+        var minute = Math.floor(sec / 60);
+        var second = sec % 60;
+        minute = (minute >= 10) ? minute : '0' + minute;
+        second = (second >= 10) ? second : '0' + second;
+        return minute + ':' + second;
+    }
+
+    module.exports = format;
 </wxs> -->

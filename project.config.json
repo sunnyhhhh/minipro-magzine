@@ -48,7 +48,8 @@
 					"id": 1,
 					"name": "读书详情",
 					"pathName": "pages/articleDetail/articleDetail",
-					"query": "id=10"
+					"query": "id=11",
+					"scene": null
 				}
 			]
 		}

@@ -3,5 +3,6 @@
     "pages/index",
     "pages/type/type",
     "pages/articleDetail/articleDetail"
-  ]
+  ],
+  "requiredBackgroundModes":["audio"]
 }
